@@ -9,13 +9,24 @@
 /* Begin PBXBuildFile section */
 		B1C755C02C44B6DA00A41EFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755BF2C44B6DA00A41EFC /* AppDelegate.swift */; };
 		B1C755C22C44B6DA00A41EFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755C12C44B6DA00A41EFC /* SceneDelegate.swift */; };
-		B1C755C42C44B6DA00A41EFC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755C32C44B6DA00A41EFC /* ViewController.swift */; };
-		B1C755C72C44B6DA00A41EFC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B1C755C62C44B6DA00A41EFC /* Base */; };
 		B1C755C92C44B6DB00A41EFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1C755C82C44B6DB00A41EFC /* Assets.xcassets */; };
 		B1C755CC2C44B6DB00A41EFC /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B1C755CB2C44B6DB00A41EFC /* Base */; };
 		B1C755D72C44B6DB00A41EFC /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755D62C44B6DB00A41EFC /* WeatherAppTests.swift */; };
 		B1C755E12C44B6DB00A41EFC /* WeatherAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755E02C44B6DB00A41EFC /* WeatherAppUITests.swift */; };
 		B1C755E32C44B6DB00A41EFC /* WeatherAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755E22C44B6DB00A41EFC /* WeatherAppUITestsLaunchTests.swift */; };
+		B1C755FA2C44B7BE00A41EFC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B1C755F92C44B7BE00A41EFC /* Alamofire */; };
+		B1C755FD2C44B7DD00A41EFC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B1C755FC2C44B7DD00A41EFC /* SnapKit */; };
+		B1C756002C44B92200A41EFC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755FF2C44B92200A41EFC /* BaseViewController.swift */; };
+		B1C756022C44BAB400A41EFC /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = B1C756012C44BAB400A41EFC /* Documentation.docc */; };
+		B1C756052C44BB4100A41EFC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B1C756042C44BB4100A41EFC /* RxCocoa */; };
+		B1C756072C44BB4100A41EFC /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B1C756062C44BB4100A41EFC /* RxRelay */; };
+		B1C756092C44BB4100A41EFC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B1C756082C44BB4100A41EFC /* RxSwift */; };
+		B1C7560E2C44BD7D00A41EFC /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C7560D2C44BD7D00A41EFC /* APIService.swift */; };
+		B1C756112C44BEF900A41EFC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C756102C44BEF900A41EFC /* MainViewController.swift */; };
+		B1C756132C44BF4F00A41EFC /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C756122C44BF4F00A41EFC /* Log.swift */; };
+		B1C756152C44C19100A41EFC /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C756142C44C19100A41EFC /* ViewModelType.swift */; };
+		B1C756172C44F9C400A41EFC /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C756162C44F9C400A41EFC /* Constant.swift */; };
+		B1C7561A2C454BB300A41EFC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B1C756192C454BB300A41EFC /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +50,6 @@
 		B1C755BC2C44B6DA00A41EFC /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C755BF2C44B6DA00A41EFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1C755C12C44B6DA00A41EFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B1C755C32C44B6DA00A41EFC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B1C755C62C44B6DA00A41EFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1C755C82C44B6DB00A41EFC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1C755CB2C44B6DB00A41EFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1C755CD2C44B6DB00A41EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +58,14 @@
 		B1C755DC2C44B6DB00A41EFC /* WeatherAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C755E02C44B6DB00A41EFC /* WeatherAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITests.swift; sourceTree = "<group>"; };
 		B1C755E22C44B6DB00A41EFC /* WeatherAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B1C755FF2C44B92200A41EFC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B1C756012C44BAB400A41EFC /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
+		B1C7560D2C44BD7D00A41EFC /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		B1C756102C44BEF900A41EFC /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B1C756122C44BF4F00A41EFC /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		B1C756142C44C19100A41EFC /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		B1C756162C44F9C400A41EFC /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		B1C756192C454BB300A41EFC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +73,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C756052C44BB4100A41EFC /* RxCocoa in Frameworks */,
+				B1C755FA2C44B7BE00A41EFC /* Alamofire in Frameworks */,
+				B1C756092C44BB4100A41EFC /* RxSwift in Frameworks */,
+				B1C756072C44BB4100A41EFC /* RxRelay in Frameworks */,
+				B1C755FD2C44B7DD00A41EFC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,13 +121,11 @@
 		B1C755BE2C44B6DA00A41EFC /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				B1C755BF2C44B6DA00A41EFC /* AppDelegate.swift */,
-				B1C755C12C44B6DA00A41EFC /* SceneDelegate.swift */,
-				B1C755C32C44B6DA00A41EFC /* ViewController.swift */,
-				B1C755C52C44B6DA00A41EFC /* Main.storyboard */,
-				B1C755C82C44B6DB00A41EFC /* Assets.xcassets */,
-				B1C755CA2C44B6DB00A41EFC /* LaunchScreen.storyboard */,
-				B1C755CD2C44B6DB00A41EFC /* Info.plist */,
+				B1C755EF2C44B6E500A41EFC /* App */,
+				B1C7560A2C44BBA100A41EFC /* Common */,
+				B1C755FE2C44B7E600A41EFC /* Feature */,
+				B1C7560C2C44BD6700A41EFC /* Service */,
+				B1C755F02C44B6F600A41EFC /* Support */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -127,6 +147,78 @@
 			path = WeatherAppUITests;
 			sourceTree = "<group>";
 		};
+		B1C755EF2C44B6E500A41EFC /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B1C755BF2C44B6DA00A41EFC /* AppDelegate.swift */,
+				B1C755C12C44B6DA00A41EFC /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B1C755F02C44B6F600A41EFC /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				B1C756012C44BAB400A41EFC /* Documentation.docc */,
+				B1C755C82C44B6DB00A41EFC /* Assets.xcassets */,
+				B1C755CA2C44B6DB00A41EFC /* LaunchScreen.storyboard */,
+				B1C755CD2C44B6DB00A41EFC /* Info.plist */,
+				B1C756192C454BB300A41EFC /* .gitignore */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		B1C755FE2C44B7E600A41EFC /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				B1C7560F2C44BEE600A41EFC /* Main */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		B1C7560A2C44BBA100A41EFC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B1C7560B2C44BC2300A41EFC /* Base */,
+				B1C756122C44BF4F00A41EFC /* Log.swift */,
+				B1C756142C44C19100A41EFC /* ViewModelType.swift */,
+				B1C756162C44F9C400A41EFC /* Constant.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B1C7560B2C44BC2300A41EFC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B1C755FF2C44B92200A41EFC /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B1C7560C2C44BD6700A41EFC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B1C756182C4543C200A41EFC /* Usecase */,
+				B1C7560D2C44BD7D00A41EFC /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B1C7560F2C44BEE600A41EFC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B1C756102C44BEF900A41EFC /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B1C756182C4543C200A41EFC /* Usecase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Usecase;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +235,13 @@
 			dependencies = (
 			);
 			name = WeatherApp;
+			packageProductDependencies = (
+				B1C755F92C44B7BE00A41EFC /* Alamofire */,
+				B1C755FC2C44B7DD00A41EFC /* SnapKit */,
+				B1C756042C44BB4100A41EFC /* RxCocoa */,
+				B1C756062C44BB4100A41EFC /* RxRelay */,
+				B1C756082C44BB4100A41EFC /* RxSwift */,
+			);
 			productName = WeatherApp;
 			productReference = B1C755BC2C44B6DA00A41EFC /* WeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +314,11 @@
 				Base,
 			);
 			mainGroup = B1C755B32C44B6DA00A41EFC;
+			packageReferences = (
+				B1C755F82C44B7BE00A41EFC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B1C755FB2C44B7DD00A41EFC /* XCRemoteSwiftPackageReference "SnapKit" */,
+				B1C756032C44BB4100A41EFC /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = B1C755BD2C44B6DA00A41EFC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,8 +336,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1C755C92C44B6DB00A41EFC /* Assets.xcassets in Resources */,
+				B1C7561A2C454BB300A41EFC /* .gitignore in Resources */,
 				B1C755CC2C44B6DB00A41EFC /* Base in Resources */,
-				B1C755C72C44B6DA00A41EFC /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +362,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1C755C42C44B6DA00A41EFC /* ViewController.swift in Sources */,
 				B1C755C02C44B6DA00A41EFC /* AppDelegate.swift in Sources */,
+				B1C756132C44BF4F00A41EFC /* Log.swift in Sources */,
+				B1C756172C44F9C400A41EFC /* Constant.swift in Sources */,
+				B1C7560E2C44BD7D00A41EFC /* APIService.swift in Sources */,
 				B1C755C22C44B6DA00A41EFC /* SceneDelegate.swift in Sources */,
+				B1C756152C44C19100A41EFC /* ViewModelType.swift in Sources */,
+				B1C756112C44BEF900A41EFC /* MainViewController.swift in Sources */,
+				B1C756002C44B92200A41EFC /* BaseViewController.swift in Sources */,
+				B1C756022C44BAB400A41EFC /* Documentation.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +407,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B1C755C52C44B6DA00A41EFC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B1C755C62C44B6DA00A41EFC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B1C755CA2C44B6DB00A41EFC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -444,10 +546,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9Q2ZLM39JN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = WeatherApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,10 +574,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9Q2ZLM39JN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherApp/Info.plist;
+				INFOPLIST_FILE = WeatherApp/Support/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -607,6 +709,61 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1C755F82C44B7BE00A41EFC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		B1C755FB2C44B7DD00A41EFC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		B1C756032C44BB4100A41EFC /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1C755F92C44B7BE00A41EFC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1C755F82C44B7BE00A41EFC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B1C755FC2C44B7DD00A41EFC /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1C755FB2C44B7DD00A41EFC /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		B1C756042C44BB4100A41EFC /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1C756032C44BB4100A41EFC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B1C756062C44BB4100A41EFC /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1C756032C44BB4100A41EFC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B1C756082C44BB4100A41EFC /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1C756032C44BB4100A41EFC /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1C755B42C44B6DA00A41EFC /* Project object */;
 }

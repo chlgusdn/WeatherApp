@@ -19,7 +19,7 @@ final class APIService {
         let configuration = URLSessionConfiguration.af.default
         configuration.timeoutIntervalForRequest = 30
         configuration.timeoutIntervalForResource = 30
-        session = Session(configuration: configuration)
+        session = Session(configuration: configuration, eventMonitors: [APILogger()])
         return session
     }
     

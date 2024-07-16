@@ -87,12 +87,14 @@ final class SearchViewController: BaseViewController {
     }
 }
 
+//MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         viewModel.input.actionSearchCancelButtonClicked.accept(())
     }
 }
 
+//MARK: - UISearchResultsUpdating
 extension SearchViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         viewModel.input.actionSearchedCity.accept(searchController.searchBar.text ?? "")

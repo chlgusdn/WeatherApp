@@ -27,4 +27,16 @@ enum APIError: Error {
     
     /// 위 케이스를 제외한 오류 케이스
     case etcError(statusCode: Int)
+    
+    /// 오류 정보에 대한 설명
+    var errorDescription: String {
+        switch self {
+        case .decodeFailed:                       return "디코딩에 실패하였습니다"
+        case .badRequest:                         return "잘못된 Request 입니다"
+        case .manyRequest:                        return "Request가 너무 많이 실행되었습니다"
+        case .serverError:                        return "서버 에러입니다"
+        case .gateWayTimeOut:                     return "서버 Request 타임아웃 입니다"
+        case .etcError(let statusCode):           return "\(statusCode) 에러가 발생하였습니다"
+        }
+    }
 }

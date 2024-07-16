@@ -143,6 +143,7 @@ final class MainViewController: BaseViewController {
     override func bindUI() {
         let output = viewModel.transform()
         
+        /// 헤더
         output.weatherHeaderBehavior
             .asDriver(onErrorJustReturn: WeatherHeader(
                 cityName: "날씨 정보를 불러올 수 없음",
@@ -159,6 +160,7 @@ final class MainViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        /// 리스트
         output.weatherListBehavior
             .bind(to: tableView.rx.items(
                 cellIdentifier: MainTableViewCell.identifier,
@@ -167,16 +169,31 @@ final class MainViewController: BaseViewController {
                 cell.configureCell(data: item)
             }
             .disposed(by: disposeBag)
+        
+        /// 에러 처리
+        output.errorPublished
+            .withUnretained(self)
+            .subscribe(onNext: { (safeSelf, error) in
+                let alertController = UIAlertController(title: "", message: error.errorDescription, preferredStyle: .alert)
+                let confirmAction = UIAlertAction(title: "확인", style: .default) { _ in
+                    exit(0)
+                }
+                alertController.addAction(confirmAction)
+                safeSelf.present(alertController, animated: true)
+                
+        })
+        .disposed(by: disposeBag)
     }
 }
 
+//MARK: - SearchContorller Delegate
 extension MainViewController: SearchViewControllerDelegate {
     func refreshCurrentWeatherInCity(city: City) {
         dismiss(animated: true)
         viewModel.input.actionWeatherInfo.accept(city.id)
     }
 }
-
+//MARK: - Preview
 @available(iOS 17.0, *)
 #Preview("Main화면") {
     UINavigationController(

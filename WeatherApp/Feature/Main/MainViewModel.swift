@@ -80,7 +80,15 @@ final class MainViewModel: ViewModelType {
                     output.weatherHeaderBehavior.accept(weatherHeader)
                     
                 case .failure(let error):
-                    output.errorPublished.accept(error)
+                    let weatherHeader = WeatherHeader(
+                        cityName: "날씨를 불러올 수 없음",
+                        currentTemperature: 0,
+                        maxTemperature: 0,
+                        minTemperature: 0,
+                        weatherDescription: "날씨를 불러올 수 없음"
+                    )
+                    
+                    output.weatherHeaderBehavior.accept(weatherHeader)
                 }
                 
                 switch listResult {

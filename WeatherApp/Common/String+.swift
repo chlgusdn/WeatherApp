@@ -9,6 +9,8 @@ import Foundation
 
 extension String {
     
+    /// 날짜 포맷을 (요일)로 변경하는 함수
+    /// - Returns: 요일로 변경한 날짜 포맷
     func dateFomatDayOfWeek() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"

@@ -25,11 +25,12 @@ final class APILogger: EventMonitor {
         """)
     }
     
+    
     /// Request 완료 후 Response 를 로깅할 함수
     /// - Parameters:
     ///   - request: Request 정보
     ///   - response: Response 정보
-    func request(_ request: DataRequest, didParseResponse response: DataResponse<Data?, AFError>) {
+    func request<Value>(_ request: DataRequest, didParseResponse response: DataResponse<Value, AFError>) {
         Log.network("""
         - ******** [Response] ********
         - [URL] : \(request.request?.url?.absoluteString ?? "__none__")
@@ -37,7 +38,6 @@ final class APILogger: EventMonitor {
         - [RESULT] : \(response.data?.toPrettyPrintedString ?? "__none__")
         """)
     }
-    
 }
 
 fileprivate extension Data {

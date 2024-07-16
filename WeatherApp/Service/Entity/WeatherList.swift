@@ -14,12 +14,14 @@ struct WeatherList: Decodable {
     let message: Int
     let cnt: Int
     let weatherInfoList: [WeatherInfo]
+    let city: City?
  
     enum CodingKeys: String, CodingKey {
         case cod
         case message
         case cnt
         case weatherInfoList = "list"
+        case city
     }
 }
 
@@ -56,6 +58,50 @@ struct WeatherInfo: Decodable {
     }
 }
 
+/// 날씨에 대한 온도 및 습도, 해수면 대기압 정보
+struct Main: Codable {
+    /// 온도
+    var temp: Double
+    /// 체감온도
+    var feelsLike: Double
+    /// 최저온도
+    var tempMin: Double
+    /// 최고온도
+    var tempMax: Double
+    /// 기본 해수면 대기압
+    var pressure:Int
+    /// 해수면 대기압
+    var seaLevel:Int
+    /// 지상 대기압
+    var grndLevel:Int
+    /// 습도
+    var humidity: Int
+    /// 내부 값
+    var tempKf: Double?
+    
+    enum CodingKeys: String, CodingKey {
+        case temp
+        case feelsLike = "feels_like"
+        case tempMin = "temp_min"
+        case tempMax = "temp_max"
+        case pressure
+        case seaLevel = "sea_level"
+        case grndLevel = "grnd_level"
+        case humidity
+        case tempKf = "temp_kf"
+    }
+}
+
+/// 풍량 정보
+struct Wind: Codable {
+    /// 풍속
+    let speed: Double
+    /// 풍향
+    let deg: Int
+    /// 돌풍
+    let gust: Double
+}
+    
 /// 도시 정보
 struct City: Decodable {
     /// 도시 아이디
@@ -102,10 +148,13 @@ struct Clouds: Decodable {
 /// 강수 정보
 struct Rain: Codable {
     /// 지난 3시간동안 강수량 단위: mm
-    let the3H: Double
+    var the3H: Double?
+    /// 지난 1시간동안 강수량 단위: mm
+    var the1H: Double?
 
     enum CodingKeys: String, CodingKey {
         case the3H = "3h"
+        case the1H = "1h"
     }
 }
 
@@ -113,12 +162,17 @@ struct Rain: Codable {
 /// 낮/밤에 대한 정보
 struct Sys: Codable {
     /// 낮/밤 정보 (낮: D, 밤: N)
-    let pod: String
+    var pod: String?
+    var country: String?
+    var sunset: Int?
+    var type: Int?
+    var sunrise: Int?
+    var id: Int?
 }
 
 
 /// 날씨 정보
-struct Weather: Codable {
+struct Weather: Decodable {
     /// 날씨 상태 id
     let id: Int
     /// 날씨 값 (비, 눈, 구름)
@@ -127,49 +181,4 @@ struct Weather: Codable {
     let description: String
     /// 날씨
     let icon: String
-}
-
-/// 풍량 정보
-struct Wind: Codable {
-    /// 풍속
-    let speed: Double
-    /// 풍향
-    let deg: Int
-    /// 돌풍
-    let gust: Double
-}
-
-
-/// 날씨에 대한 온도 및 습도, 해수면 대기압 정보
-struct Main: Codable {
-    /// 온도
-    let temp: Double
-    /// 체감온도
-    let feelsLike: Double
-    /// 최저온도
-    let tempMin: Double
-    /// 최고온도
-    let tempMax: Double
-    /// 기본 해수면 대기압
-    let pressure:Int
-    /// 해수면 대기압
-    let seaLevel:Int
-    /// 지상 대기압
-    let grndLevel:Int
-    /// 습도
-    let humidity: Int
-    /// 내부 값
-    let tempKf: Double
-
-    enum CodingKeys: String, CodingKey {
-        case temp
-        case feelsLike = "feels_like"
-        case tempMin = "temp_min"
-        case tempMax = "temp_max"
-        case pressure
-        case seaLevel = "sea_level"
-        case grndLevel = "grnd_level"
-        case humidity
-        case tempKf = "temp_kf"
-    }
 }

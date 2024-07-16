@@ -6,34 +6,22 @@
 //
 
 import UIKit
+import RxDataSources
 
 /// 메인 화면에 대한 피처 클래스
 final class MainViewController: BaseViewController {
     
-    /// 나의 위치 레이블
-    private let currentMyLocationTitleLabel:UILabel = {
+    /// 위치 레이블
+    private let locationLabel:UILabel = {
         let label = UILabel()
-        label.text = "나의 위치"
         label.font = UIFont.systemFont(ofSize: 40, weight: .semibold)
         label.textAlignment = .center
         return label
     }()
     
-    
-    /// 내 위치 표시 데이터 레이블
-    private let currentMyLocationLabel:UILabel = {
-        let label = UILabel()
-        label.text = "대한민국 서울시"
-        label.font = UIFont.systemFont(ofSize: 14, weight: .thin)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    
     /// 온도 표시 레이블
     private let temperatureLabel:UILabel = {
         let label = UILabel()
-        label.text = "12도"
         label.font = UIFont.systemFont(ofSize: 75, weight: .thin)
         label.textAlignment = .center
         return label
@@ -43,17 +31,14 @@ final class MainViewController: BaseViewController {
     /// 날씨 표시 레이블
     private let weatherLabel:UILabel = {
         let label = UILabel()
-        label.text = "부분적으로 흐림"
         label.font = UIFont.systemFont(ofSize: 20, weight: .thin)
         label.textAlignment = .center
         return label
     }()
     
-    
     /// 최고, 최저 기온 표시 레이블
     private let temperatureAreaLabel:UILabel = {
         let label = UILabel()
-        label.text = "최고: 17 최저 11"
         label.font = UIFont.systemFont(ofSize: 20, weight: .thin)
         label.textAlignment = .center
         return label
@@ -67,6 +52,26 @@ final class MainViewController: BaseViewController {
         view.distribution = .fill
         view.spacing = 8
         return view
+    }()
+    
+    /// 최근 5일에 대한 날씨를 보여주기 위한 테이블 뷰
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .plain)
+        tableView.layer.cornerRadius = 25
+        tableView.contentInset = UIEdgeInsets(
+            top: 20,
+            left: 0,
+            bottom: 0,
+            right: 0
+        )
+        tableView.backgroundColor = .systemGray6
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 40
+        tableView.register(
+            MainTableViewCell.self,
+            forCellReuseIdentifier: MainTableViewCell.identifier
+        )
+        return tableView
     }()
     
     let viewModel: MainViewModel
@@ -98,15 +103,18 @@ final class MainViewController: BaseViewController {
     }
     
     override func setLayout() {
-        [currentMyLocationTitleLabel,
-         currentMyLocationLabel,
+        [locationLabel,
          temperatureLabel,
          weatherLabel,
          temperatureAreaLabel].forEach {
             containerStackView.addArrangedSubview($0)
         }
         
-        view.addSubview(containerStackView)
+        
+        [containerStackView,
+         tableView].forEach {
+            view.addSubview($0)
+        }
     }
     
     override func setConstraint() {
@@ -114,12 +122,42 @@ final class MainViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.left.right.equalToSuperview()
         }
+        
+        tableView.snp.makeConstraints {
+            $0.height.equalTo(250)
+            $0.left.right.equalToSuperview().inset(20)
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).inset(20)
+        }
     }
     
     override func bindUI() {
         let output = viewModel.transform()
+        
+        output.weatherHeaderBehavior
+            .asDriver(onErrorJustReturn: WeatherHeader(
+                cityName: "날씨 정보를 불러올 수 없음",
+                currentTemperature: 0,
+                maxTemperature: 0,
+                minTemperature: 0,
+                weatherDescription: "날씨 정보를 불러올 수 없음")
+            )
+            .drive(onNext: { [weak self] info in
+                self?.locationLabel.text = info.cityName
+                self?.weatherLabel.text = info.weatherDescription
+                self?.temperatureAreaLabel.text = "최저 \(info.minTemperature)°C ~ 최고 \(info.maxTemperature)°C"
+                self?.temperatureLabel.text = "\(info.currentTemperature)°C"
+            })
+            .disposed(by: disposeBag)
+        
+        output.weatherListBehavior
+            .bind(to: tableView.rx.items(
+                cellIdentifier: MainTableViewCell.identifier,
+                cellType: MainTableViewCell.self)
+            ) { index, item, cell in
+                cell.cellConfigure(weather: item)
+            }
+            .disposed(by: disposeBag)
     }
-    
 }
 
 @available(iOS 17.0, *)

@@ -13,6 +13,11 @@
 		B11259302C4611CE0073CB4D /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B112592F2C4611CE0073CB4D /* MainRepository.swift */; };
 		B11259322C4612A90073CB4D /* WeatherList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11259312C4612A90073CB4D /* WeatherList.swift */; };
 		B11259362C4654160073CB4D /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = B11259352C4654160073CB4D /* city.list.json */; };
+		B11259382C46AE8E0073CB4D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11259372C46AE8E0073CB4D /* MainTableViewCell.swift */; };
+		B112593A2C46D2640073CB4D /* WeatherHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11259392C46D2640073CB4D /* WeatherHeader.swift */; };
+		B112593D2C46DAD80073CB4D /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = B112593C2C46DAD80073CB4D /* CurrentWeather.swift */; };
+		B112593F2C46DFBE0073CB4D /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B112593E2C46DFBE0073CB4D /* BaseTableViewCell.swift */; };
+		B11259412C46EC4D0073CB4D /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11259402C46EC4D0073CB4D /* String+.swift */; };
 		B1C755C02C44B6DA00A41EFC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755BF2C44B6DA00A41EFC /* AppDelegate.swift */; };
 		B1C755C22C44B6DA00A41EFC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C755C12C44B6DA00A41EFC /* SceneDelegate.swift */; };
 		B1C755C92C44B6DB00A41EFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1C755C82C44B6DB00A41EFC /* Assets.xcassets */; };
@@ -62,6 +67,11 @@
 		B112592F2C4611CE0073CB4D /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		B11259312C4612A90073CB4D /* WeatherList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherList.swift; sourceTree = "<group>"; };
 		B11259352C4654160073CB4D /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
+		B11259372C46AE8E0073CB4D /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		B11259392C46D2640073CB4D /* WeatherHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeader.swift; sourceTree = "<group>"; };
+		B112593C2C46DAD80073CB4D /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		B112593E2C46DFBE0073CB4D /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		B11259402C46EC4D0073CB4D /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		B1C755BC2C44B6DA00A41EFC /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C755BF2C44B6DA00A41EFC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1C755C12C44B6DA00A41EFC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B112593B2C46D5E00073CB4D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				B11259312C4612A90073CB4D /* WeatherList.swift */,
+				B112593C2C46DAD80073CB4D /* CurrentWeather.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		B1C755B32C44B6DA00A41EFC = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +223,7 @@
 				B1C756122C44BF4F00A41EFC /* Log.swift */,
 				B1C756142C44C19100A41EFC /* ViewModelType.swift */,
 				B1C756162C44F9C400A41EFC /* Constant.swift */,
+				B11259402C46EC4D0073CB4D /* String+.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -212,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				B1C755FF2C44B92200A41EFC /* BaseViewController.swift */,
+				B112593E2C46DFBE0073CB4D /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -219,6 +240,7 @@
 		B1C7560C2C44BD6700A41EFC /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				B112593B2C46D5E00073CB4D /* Entity */,
 				B1C756182C4543C200A41EFC /* Usecase */,
 				B1C7560D2C44BD7D00A41EFC /* APIService.swift */,
 				B1C7561B2C454C6A00A41EFC /* HTTPMethod.swift */,
@@ -234,7 +256,8 @@
 			children = (
 				B1C756102C44BEF900A41EFC /* MainViewController.swift */,
 				B112592B2C460F660073CB4D /* MainViewModel.swift */,
-				B11259312C4612A90073CB4D /* WeatherList.swift */,
+				B11259372C46AE8E0073CB4D /* MainTableViewCell.swift */,
+				B11259392C46D2640073CB4D /* WeatherHeader.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -395,19 +418,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				B11259322C4612A90073CB4D /* WeatherList.swift in Sources */,
+				B112593A2C46D2640073CB4D /* WeatherHeader.swift in Sources */,
 				B1C755C02C44B6DA00A41EFC /* AppDelegate.swift in Sources */,
 				B1C756132C44BF4F00A41EFC /* Log.swift in Sources */,
+				B112593F2C46DFBE0073CB4D /* BaseTableViewCell.swift in Sources */,
 				B1C756172C44F9C400A41EFC /* Constant.swift in Sources */,
 				B1C7560E2C44BD7D00A41EFC /* APIService.swift in Sources */,
+				B112593D2C46DAD80073CB4D /* CurrentWeather.swift in Sources */,
 				B11259302C4611CE0073CB4D /* MainRepository.swift in Sources */,
 				B1C756222C455F0200A41EFC /* APILogger.swift in Sources */,
 				B1C755C22C44B6DA00A41EFC /* SceneDelegate.swift in Sources */,
 				B1C756152C44C19100A41EFC /* ViewModelType.swift in Sources */,
 				B112592C2C460F660073CB4D /* MainViewModel.swift in Sources */,
+				B11259382C46AE8E0073CB4D /* MainTableViewCell.swift in Sources */,
 				B112592E2C4610E80073CB4D /* MainRequest.swift in Sources */,
 				B1C7561E2C454DF300A41EFC /* BaseRequestable.swift in Sources */,
 				B1C756112C44BEF900A41EFC /* MainViewController.swift in Sources */,
 				B1C756202C45596A00A41EFC /* APIError.swift in Sources */,
+				B11259412C46EC4D0073CB4D /* String+.swift in Sources */,
 				B1C756002C44B92200A41EFC /* BaseViewController.swift in Sources */,
 				B1C7561C2C454C6A00A41EFC /* HTTPMethod.swift in Sources */,
 				B1C756022C44BAB400A41EFC /* Documentation.docc in Sources */,

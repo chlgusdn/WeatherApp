@@ -13,8 +13,11 @@ import RxSwift
 /// Feature개발 시 기본적으로 사용될 베이스 컨트롤러
 class BaseViewController: UIViewController {
 
+    var disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         Log.debug("init class in \(String(describing: self))")
         setUpUI()
         

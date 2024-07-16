@@ -38,4 +38,14 @@ struct MainRequest: BaseRequestable {
         ]
         endPoint = "forecast"
     }
+    
+    /// 도시아이디 값을 기본으로 API 호출할 때 사용할 initalizer
+    /// - Parameter currentCityId: 도시 아이디 정보
+    init(currentCityId: Int) {
+        method = .get
+        params = [
+            "id": currentCityId
+        ]
+        endPoint = "weather"
+    }
 }

@@ -134,8 +134,11 @@ private extension APIService {
         let apiEndPointFullURL = "\(Constant.baseURL)/\(request.endPoint)"
         var urlRequest = URLRequest(url: URL(string: "\(apiEndPointFullURL)")!)
         urlRequest.httpMethod = request.method.rawValue
+        
         var params = request.params
         params.updateValue(Constant.apiKey, forKey: "appid")
+        params.updateValue("kr", forKey: "lang")
+        params.updateValue("metric", forKey: "units")
         
         // Parameter 설정
         switch request.method {

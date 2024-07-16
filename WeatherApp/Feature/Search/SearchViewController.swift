@@ -80,7 +80,7 @@ final class SearchViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         output.filteredCityListBehavior.bind(to: tableView.rx.items(cellIdentifier: SearchViewTableViewCell.identifier, cellType: SearchViewTableViewCell.self)) { index, item, cell in
-            cell.configureCell(city: item)
+            cell.configureCell(data: item)
         }
         .disposed(by: disposeBag)
         

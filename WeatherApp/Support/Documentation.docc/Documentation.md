@@ -23,6 +23,10 @@ ViewModel의 경우 I.O패턴 (사용자한테 입력을 받는 Input과 실질�
 > 앱에 대한 화면을 담는 폴더 (기본적으로 View, ViewModel, ViewController를 담습니다)
 - Service
 > API 혹은 네트워킹 처리에 관한 파일을 담는 폴더 입니다.
+- Service (Entity)
+> API Response 값을 담는 폴더입니다
+- Service (Usecase)
+> API 호출 시 Request정보 및 Repository를 담는 폴더입니다
 - Support
 > 위 내용 외 유틸 관련된 파일 (info.plist, Asset, LaunchScreen 등)을 담는 폴더입니다.
 

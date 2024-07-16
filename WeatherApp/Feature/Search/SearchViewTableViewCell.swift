@@ -7,7 +7,8 @@
 
 import UIKit
 
-final class SearchViewTableViewCell: BaseTableViewCell {
+final class SearchViewTableViewCell: UITableViewCell, CellConfigurable {
+    typealias T = City
 
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -31,9 +32,7 @@ final class SearchViewTableViewCell: BaseTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    func configureCell(city: City) {
-        titleLabel.text = city.name
+    func configureCell(data: City) {
+        titleLabel.text = data.name
     }
-
 }

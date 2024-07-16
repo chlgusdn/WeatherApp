@@ -164,7 +164,7 @@ final class MainViewController: BaseViewController {
                 cellIdentifier: MainTableViewCell.identifier,
                 cellType: MainTableViewCell.self)
             ) { index, item, cell in
-                cell.cellConfigure(weather: item)
+                cell.configureCell(data: item)
             }
             .disposed(by: disposeBag)
     }

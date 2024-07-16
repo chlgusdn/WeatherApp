@@ -8,7 +8,7 @@
 import UIKit
 
 /// 메인화면  날씨 테이블 셀
-final class MainTableViewCell: BaseTableViewCell {
+final class MainTableViewCell: UITableViewCell, CellConfigurable {
     
     typealias T = WeatherInfo
     
@@ -115,12 +115,12 @@ final class MainTableViewCell: BaseTableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func cellConfigure(weather: WeatherInfo) {
-        minTempLabel.text = "\(Int(weather.main.tempMin))°C"
-        maxTempLabel.text = "\(Int(weather.main.tempMax))°C"
-        dayLabel.text = weather.dtTxt.dateFomatDayOfWeek()
+    func configureCell(data: WeatherInfo) {
+        minTempLabel.text = "\(Int(data.main.tempMin))°C"
+        maxTempLabel.text = "\(Int(data.main.tempMax))°C"
+        dayLabel.text = data.dtTxt.dateFomatDayOfWeek()
         
-        if let weather = weather.weather.first?.main {
+        if let weather = data.weather.first?.main {
             weatherLabel.text = WeatherIcon(rawValue: weather)?.icon
         }
     }

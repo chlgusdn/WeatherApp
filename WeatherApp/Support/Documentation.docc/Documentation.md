@@ -37,4 +37,7 @@ ViewModel의 경우 I.O패턴 (사용자한테 입력을 받는 Input과 실질�
 - SnapKit (https://github.com/SnapKit/SnapKit)
 > AutoLayout을 쉽게 이용하기 위한 라이브러리 입니다.
 
+- RxDataSources (https://github.com/RxSwiftCommunity/RxDataSources)
+> TableView에 Delegate, DataSource를 적용하지 않고, Rx바인딩을 사용하기 위한 라이브러리입니다.
+
 

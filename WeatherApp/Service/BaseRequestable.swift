@@ -15,7 +15,7 @@ protocol BaseRequestable {
     var method: HTTPMethod { get }
     
     /// HTTP Request시 필요한 파라미터 정보
-    var params: Parameters? { get set}
+    var params: Parameters { get set }
     
     /// HTTP Request시 호출API 명
     var endPoint: String { get }

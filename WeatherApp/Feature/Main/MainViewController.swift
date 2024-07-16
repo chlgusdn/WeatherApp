@@ -69,6 +69,17 @@ final class MainViewController: BaseViewController {
         return view
     }()
     
+    let viewModel: MainViewModel
+    
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -105,12 +116,20 @@ final class MainViewController: BaseViewController {
         }
     }
     
+    override func bindUI() {
+        let output = viewModel.transform()
+    }
+    
 }
 
 @available(iOS 17.0, *)
 #Preview("Main화면") {
     UINavigationController(
-        rootViewController: MainViewController()
+        rootViewController: MainViewController(
+            viewModel: MainViewModel(
+                repository: MainRepository()
+            )
+        )
     )
 }
 

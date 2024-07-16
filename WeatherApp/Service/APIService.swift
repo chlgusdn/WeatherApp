@@ -12,16 +12,19 @@ import RxSwift
 /// 네트워킹 처리를 위한 클래스
 final class APIService {
     
+    static let shared = APIService()
+    private init() {}
+    
     /// API 호출을 위한 Alamofire 객체 생성
     /// 이때 타임아웃 정보 및 API Reqeust Logging 추가
-    var session: Session {
+    let session: Session = {
         var session = Session.default
         let configuration = URLSessionConfiguration.af.default
         configuration.timeoutIntervalForRequest = 30
         configuration.timeoutIntervalForResource = 30
         session = Session(configuration: configuration, eventMonitors: [APILogger()])
         return session
-    }
+    }()
     
     /// UnitTest에 사용될 Test용 Request 함수
     /// - Parameters:
@@ -131,23 +134,22 @@ private extension APIService {
         let apiEndPointFullURL = "\(Constant.baseURL)/\(request.endPoint)"
         var urlRequest = URLRequest(url: URL(string: "\(apiEndPointFullURL)")!)
         urlRequest.httpMethod = request.method.rawValue
+        var params = request.params
+        params.updateValue(Constant.apiKey, forKey: "appid")
         
         // Parameter 설정
         switch request.method {
         case .get:
-            if let params = request.params {
-                let queryItems = params.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
-                let queryString = urlRequest.url?.appending(queryItems: queryItems)
-                urlRequest.url = queryString
-            }
+            
+            let queryItems = params.map { URLQueryItem(name: $0.key, value: "\($0.value)") }
+            let queryString = urlRequest.url?.appending(queryItems: queryItems)
+            urlRequest.url = queryString
             
             return urlRequest
             
         default:
-            if let params = request.params {
-                let bodyData = makeRequestBodyParameter(params)
-                urlRequest.httpBody = bodyData
-            }
+            let bodyData = makeRequestBodyParameter(params)
+            urlRequest.httpBody = bodyData
             
             return urlRequest
         }

@@ -15,7 +15,9 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Log.debug("init class in \(String(describing: self))")
         setUpUI()
+        
     }
     
     /// 뷰 컨트롤러에 사용될 프로퍼티를 정의할 함수입니다

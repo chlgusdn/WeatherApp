@@ -10,6 +10,8 @@ import UIKit
 /// 메인화면  날씨 테이블 셀
 final class MainTableViewCell: BaseTableViewCell {
     
+    typealias T = WeatherInfo
+    
     /// 위치 레이블
     private let dayLabel:UILabel = {
         let label = UILabel()
@@ -53,16 +55,19 @@ final class MainTableViewCell: BaseTableViewCell {
         return view
     }()
     
+    /// 구분선
     private let dividerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
     
+    
+    /// 날씨 아이콘
     private enum WeatherIcon: String {
         case rain = "Rain"
         case cloud = "Clouds"
-        case sunny = "Sunny"
+        case sunny = "Clear"
         case snow = "Snow"
         
         var icon: String {
@@ -118,7 +123,6 @@ final class MainTableViewCell: BaseTableViewCell {
         if let weather = weather.weather.first?.main {
             weatherLabel.text = WeatherIcon(rawValue: weather)?.icon
         }
-        
     }
 }
 @available(iOS 17.0, *)

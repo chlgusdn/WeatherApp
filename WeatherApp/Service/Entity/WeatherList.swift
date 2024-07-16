@@ -95,11 +95,11 @@ struct Main: Codable {
 /// 풍량 정보
 struct Wind: Codable {
     /// 풍속
-    let speed: Double
+    var speed: Double?
     /// 풍향
-    let deg: Int
+    var deg: Int?
     /// 돌풍
-    let gust: Double
+    var gust: Double?
 }
     
 /// 도시 정보
@@ -117,31 +117,33 @@ struct City: Decodable {
     let country: String
     
     /// 도시 인구
-    let population: Int
+    var population: Int?
     
     /// UTC 에서 초단위로 변경한 날짜
-    let timezone: Int
+    var timezone: Int?
     
     /// 일출시간 (UNIX, UTC)
-    let sunrise: Int
+    var sunrise: Int?
     
     /// 일몰시간 (UNIX, UTC)
-    let sunset: Int
+    var sunset: Int?
+    
+    var state: String?
 }
 
 /// 위치 정보
 struct Coord: Decodable {
     /// 위도
-    let lat: Double
+    var lat: Double?
     /// 경도
-    let lon: Double
+    var lon: Double?
 }
 
 
 /// 흐림 날씨에 대한 정보
 struct Clouds: Decodable {
     /// 흐림 단위: %
-    let all: Int
+    var all: Int?
 }
 
 

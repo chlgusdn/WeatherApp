@@ -94,8 +94,18 @@ final class MainViewController: BaseViewController {
         let rightButtonItem = UIBarButtonItem(
             systemItem: .search,
             primaryAction: UIAction(
-                handler: { _ in
+                handler: { [weak self] _ in
+                    let searchViewController = SearchViewController(
+                        viewModel: SearchViewModel()
+                    )
                     
+                    searchViewController.delegate = self
+                    
+                    let navigationController = UINavigationController(
+                        rootViewController: searchViewController
+                    )
+                    
+                    self?.present(navigationController, animated: true)
                 }
             )
         )
@@ -157,6 +167,13 @@ final class MainViewController: BaseViewController {
                 cell.cellConfigure(weather: item)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+extension MainViewController: SearchViewControllerDelegate {
+    func refreshCurrentWeatherInCity(city: City) {
+        dismiss(animated: true)
+        viewModel.input.actionWeatherInfo.accept(city.id)
     }
 }
 

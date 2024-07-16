@@ -15,13 +15,20 @@ final class MainViewModel: ViewModelType {
     
     /// 사용자 Input 정보 (사용자 Action)
     struct Input {
+        /// 불러올 도시
         let actionWeatherInfo = BehaviorRelay<Int>(value: Constant.initalStateCityId)
     }
     
     /// 사용자 Output 정보 (View에 사용될 데이터 값)
     struct Output {
+        
+        /// 날씨 정보에 대한 헤더
         let weatherHeaderBehavior = PublishRelay<WeatherHeader>()
+        
+        /// 날씨 리스트
         let weatherListBehavior = BehaviorRelay<[WeatherInfo]>(value: [])
+        
+        /// 에러 처리
         let errorPublished = PublishRelay<APIError>()
     }
     
@@ -41,6 +48,7 @@ final class MainViewModel: ViewModelType {
     func transform() -> Output {
         let output = Output()
         
+        /// 날씨정보가 변경되었을 때
         input.actionWeatherInfo
             .withUnretained(self)
             .flatMapLatest { (safeSelf, cityId) in
@@ -62,7 +70,7 @@ final class MainViewModel: ViewModelType {
                 switch headerResult {
                 case .success(let info):
                     let weatherHeader = WeatherHeader(
-                        cityName: info.name,
+                        cityName: info.name ?? "",
                         currentTemperature: Int(info.main.temp),
                         maxTemperature: Int(info.main.tempMax),
                         minTemperature: Int(info.main.tempMin),

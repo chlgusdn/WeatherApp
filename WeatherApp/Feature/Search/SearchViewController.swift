@@ -54,8 +54,8 @@ final class SearchViewController: BaseViewController {
             title: "도시 검색",
             placeholder: "도시이름을 검색하세요"
         )
+        
         navigationItem.searchController?.searchResultsUpdater = self
-        navigationItem.searchController?.searchBar.delegate = self
     }
     
     override func setLayout() {
@@ -84,13 +84,10 @@ final class SearchViewController: BaseViewController {
         }
         .disposed(by: disposeBag)
         
-    }
-}
-
-//MARK: - UISearchBarDelegate
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.input.actionSearchCancelButtonClicked.accept(())
+        navigationItem.searchController?.searchBar.rx
+            .cancelButtonClicked
+            .bind(to: viewModel.input.actionSearchCancelButtonClicked)
+            .disposed(by: disposeBag)
     }
 }
 

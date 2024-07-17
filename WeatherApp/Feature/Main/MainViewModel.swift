@@ -79,7 +79,7 @@ final class MainViewModel: ViewModelType {
                     
                     output.weatherHeaderBehavior.accept(weatherHeader)
                     
-                case .failure(let error):
+                case .failure:
                     let weatherHeader = WeatherHeader(
                         cityName: "날씨를 불러올 수 없음",
                         currentTemperature: 0,

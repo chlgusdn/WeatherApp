@@ -15,4 +15,6 @@ enum Constant {
     static let baseURL = "https://api.openweathermap.org/data/2.5"
     /// 최초 데이터 도시 id 정보 (Asan)
     static let initalStateCityId = 1839726
+    /// 도시 정보 JSON 파일이름
+    static let cityJSONFileName = "city.list"
 }

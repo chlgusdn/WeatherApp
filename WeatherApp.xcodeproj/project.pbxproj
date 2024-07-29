@@ -55,6 +55,7 @@
 		B1C7561E2C454DF300A41EFC /* BaseRequestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C7561D2C454DF300A41EFC /* BaseRequestable.swift */; };
 		B1C756202C45596A00A41EFC /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C7561F2C45596A00A41EFC /* APIError.swift */; };
 		B1C756222C455F0200A41EFC /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C756212C455F0200A41EFC /* APILogger.swift */; };
+		B1DAE1E42C577C090056E98C /* CacheJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DAE1E32C577C090056E98C /* CacheJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +122,7 @@
 		B1C7561D2C454DF300A41EFC /* BaseRequestable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRequestable.swift; sourceTree = "<group>"; };
 		B1C7561F2C45596A00A41EFC /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		B1C756212C455F0200A41EFC /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
+		B1DAE1E32C577C090056E98C /* CacheJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 		B1C7560A2C44BBA100A41EFC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B1DAE1E32C577C090056E98C /* CacheJSON.swift */,
 				B112594B2C4708020073CB4D /* CellConfigurable.swift */,
 				B1C756162C44F9C400A41EFC /* Constant.swift */,
 				B1C756122C44BF4F00A41EFC /* Log.swift */,
@@ -496,6 +499,7 @@
 				B1C756202C45596A00A41EFC /* APIError.swift in Sources */,
 				B112594C2C4708020073CB4D /* CellConfigurable.swift in Sources */,
 				B11259412C46EC4D0073CB4D /* String+.swift in Sources */,
+				B1DAE1E42C577C090056E98C /* CacheJSON.swift in Sources */,
 				B1C756002C44B92200A41EFC /* BaseViewController.swift in Sources */,
 				B1C7561C2C454C6A00A41EFC /* HTTPMethod.swift in Sources */,
 				B1C756022C44BAB400A41EFC /* Documentation.docc in Sources */,

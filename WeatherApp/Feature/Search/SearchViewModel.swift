@@ -63,15 +63,33 @@ final class SearchViewModel: ViewModelType {
         input.actionViewDidLoad
             .withUnretained(self)
             .subscribe(onNext: { (safeSelf, _) in
-                guard let localJSONFile = Bundle.main.url(forResource: "city.list", withExtension: "json") else { return }
-                do {
-                    let data = try Data(contentsOf: localJSONFile)
-                    let response = try JSONDecoder().decode([City].self, from: data)
+                
+                if let response = CacheJSON.shared.load(
+                    Constant.cityJSONFileName,
+                    type: [City].self,
+                    isSave: true
+                ) {
                     safeSelf.originalCityList = response
                     output.filteredCityListBehavior.accept(safeSelf.originalCityList)
                 }
-                catch {
-                    Log.error("response decode error")
+                else {
+                    do {
+                        guard let localJSONFile = Bundle.main.url(
+                            forResource: Constant.cityJSONFileName,
+                            withExtension: "json"
+                        ) else { return }
+                        let data = try Data(contentsOf: localJSONFile)
+                        let response = try JSONDecoder().decode(
+                            [City].self,
+                            from: data
+                        )
+                        
+                        safeSelf.originalCityList = response
+                        output.filteredCityListBehavior.accept(safeSelf.originalCityList)
+                    }
+                    catch {
+                        Log.error("Data Decode Failed")
+                    }
                 }
             })
             .disposed(by: disposeBag)
